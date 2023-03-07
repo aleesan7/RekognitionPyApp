@@ -1,8 +1,6 @@
-from cProfile import label
 import boto3
 import base64
-from io import BytesIO
-from flask import Flask, request, jsonify
+from flask import Flask, request
 import os
 from dotenv import load_dotenv
 
@@ -16,7 +14,6 @@ app = Flask(__name__)
 
 @app.route('/hoja1-201114336', methods=['POST'])
 def recognize_text():
-
     # Obtener la imagen en base64 desde la solicitud POST
     img_base64 = request.json['image']
     # Decodificar la imagen en base64 a bytes
